@@ -1,0 +1,64 @@
+@import-normalize; /* bring in normalize.css styles */
+
+:root {
+  --color-text-main: #121417;
+  --color-text-second: rgba(18, 20, 23, 0.5);
+  --color-text-button: #fff;
+  --color-text-loadmore: #3470ff;
+  --color-loadmore-hover: #0b44cd;
+  --color-label: #8a8a89;
+  --color-btn: #3470ff;
+  --color-btn-hover: #0b44cd;
+  --color-filter-field: #f7f7fb;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--color-text-button);
+  color: var(--color-text-main);
+  font-weight: 400;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+  width: 100%;
+  margin: 0;
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
