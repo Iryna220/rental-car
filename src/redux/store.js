@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { carsReducer } from './cars/carsSlice';
 
 // import {
 //   persistStore,
@@ -22,7 +23,9 @@ import { configureStore } from '@reduxjs/toolkit';
 // const persistedReducer = persistReducer(persistConfig);
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    cars: carsReducer,
+  },
   // middleware: getDefaultMiddleware =>
   //   getDefaultMiddleware({
   //     serializableCheck: {

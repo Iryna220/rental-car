@@ -21,7 +21,7 @@ const arrOfActs = [getCarsThunk];
 
 const addStatusToActs = status => arrOfActs.map(el => el[status]);
 
-export const carsSlice = createSlice({
+const carsSlice = createSlice({
   name: 'cars',
   initialState: carsInitialState,
   extraReducers: builder => {
@@ -37,3 +37,5 @@ export const carsSlice = createSlice({
       .addMatcher(isAnyOf(...addStatusToActs('rejected')), onRejected);
   },
 });
+
+export const carsReducer = carsSlice.reducer;

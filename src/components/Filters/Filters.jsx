@@ -5,7 +5,7 @@ export const Filters = () => {
         <label>
           Car brand
           <select name="brand">
-            <option value="">Please choose car brand</option>
+            {/* <option value="">Please choose car brand</option> */}
             <option value="xs">Extra small</option>
             <optiion value="s">Small</optiion>
             <option value="m">Medium</option>
