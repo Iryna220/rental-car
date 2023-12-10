@@ -1,19 +1,22 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Notify } from 'notiflix';
 
 axios.defaults.baseURL = 'https://650dadb4a8b42265ec2c94b2.mockapi.io';
 
-export const options = {
-  width: '400px',
-  position: 'center-center',
-  timeout: 1500,
-  fontSize: '20px',
-};
+export const LIMIT = 12;
 
-const getCars = async (_, thunkAPI) => {
+const getAllCars = async (_, thunkAPI) => {
   try {
     const response = await axios.get('/adverts');
+    return response.date;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
+  }
+};
+
+const getCars = async (page, thunkAPI) => {
+  try {
+    const response = await axios.get(`/adverts?page=${page}&limit=${LIMIT}`);
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
@@ -21,3 +24,5 @@ const getCars = async (_, thunkAPI) => {
 };
 
 export const getCarsThunk = createAsyncThunk('cars/getCars', getCars);
+
+export const getAllCarsThunk = createAsyncThunk('cars/getAllCars', getAllCars);

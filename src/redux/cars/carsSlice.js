@@ -1,8 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getCarsThunk } from './fetchCar';
+import { getCarsThunk, getAllCarsThunk } from './fetchCar';
+import { makeUniqueBrandsState } from 'service/serviceFunc';
 
 const carsInitialState = {
   cars: [],
+  allCars: [],
+  carsBrands: [],
   isLoading: false,
   error: null,
 };
@@ -17,7 +20,7 @@ const onRejected = (state, { payload }) => {
   state.error = payload;
 };
 
-const arrOfActs = [getCarsThunk];
+const arrOfActs = [getCarsThunk, getAllCarsThunk];
 
 const addStatusToActs = status => arrOfActs.map(el => el[status]);
 
@@ -26,9 +29,15 @@ const carsSlice = createSlice({
   initialState: carsInitialState,
   extraReducers: builder => {
     builder
+      .addCase(getAllCarsThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.allCars = payload;
+        state.carsBrands = makeUniqueBrandsState(payload);
+        state.error = null;
+      })
       .addCase(getCarsThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.cars = payload;
+        state.cars = [...state.cars, ...payload];
         state.error = null;
       })
 
