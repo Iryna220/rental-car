@@ -13,8 +13,18 @@ import {
   titleH3,
   TitleWrap,
 } from './CarsItems.styled';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addFavoriteCar,
+  deleteFavoriteCar,
+} from 'redux/favoriteSlice/favoriteSlice';
+import { selectFavoriteCars } from 'redux/selectors';
+import { ModalWindowWrap } from 'components/ModalWindowWrap/ModalWindowWrap';
 
-export const CarsItems = ({ car }) => {
+export const CarsItems = ({ car, index }) => {
+  const dispatch = useDispatch();
+  const favoriteCarsId = useSelector(selectFavoriteCars);
   const {
     id,
     make,
@@ -26,15 +36,33 @@ export const CarsItems = ({ car }) => {
     type,
     functionalities,
     address,
-    mileage,
-    engineSize,
   } = car;
 
-  const cityCountry = address.split(', ').slice(-2);
-  console.log('cityCountry', cityCountry);
+  const cityCountry = address?.split(', ').slice(-2);
+
+  const [isCarFavorite, setIsCarFavorite] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    if (favoriteCarsId?.some(car => car.id === id)) {
+      setIsCarFavorite(true);
+    } else {
+      setIsCarFavorite(false);
+    }
+  }, [favoriteCarsId, id]);
+
+  const onClickHeart = () => {
+    isCarFavorite
+      ? dispatch(deleteFavoriteCar(id))
+      : dispatch(addFavoriteCar(car));
+  };
+
+  const toggleModal = () => {
+    setShowModal(prevState => !prevState);
+  };
 
   return (
-    <CarItemStyle>
+    <CarItemStyle key={id}>
       <CarCard>
         <ImgWrap>
           <Img
@@ -64,8 +92,8 @@ export const CarsItems = ({ car }) => {
             </DescriptList>
             <DescriptList>
               <DescriptItem>{type}</DescriptItem>
-              <DescriptItem>{engineSize}</DescriptItem>
-              <DescriptItem>{mileage}</DescriptItem>
+              <DescriptItem></DescriptItem>
+              <DescriptItem></DescriptItem>
               <DescriptItem>{functionalities[0]}</DescriptItem>
             </DescriptList>
           </DescriptListWrap>
