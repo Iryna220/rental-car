@@ -1,4 +1,4 @@
-import { makeComaInMileage } from 'service/serviceFunc';
+import { makeComaInMileage, makeNumberFromPrice } from 'service/serviceFunc';
 import {
   Button,
   DescriptItem,
