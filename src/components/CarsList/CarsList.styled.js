@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const CarsListStyle = styled.ul`
   display: flex;
-  flexwrap: wrap;
+  flex-wrap: wrap;
   row-gap: 20px;
-  columngap: 15px;
-  marginbottom: 100px;
+  column-gap: 15px;
+  margin-bottom: 100px;
 
   @media screen and (min-width: 768px) {
     row-gap: 30px;
@@ -15,9 +15,9 @@ export const CarsListStyle = styled.ul`
 
 export const LoadMore = styled.p`
   color: var(--color-text-loadmore);
-  fontsize: 16px;
-  fontweight: 500;
-  textdecorationline: underline;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration-line: underline;
   margin: 0 auto;
   padding: 15px;
 

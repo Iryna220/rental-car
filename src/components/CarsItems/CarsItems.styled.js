@@ -4,9 +4,9 @@ export const CarItemStyle = styled.li`
   display: flex;
   width: 100%;
   flex-basis: calc((100% - 1 * 16px) / 2);
-  flexdirection: column;
-  alignitems: flex-start;
-  justifycontent: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 16px;
 
   @media screen and (min-width: 768px) {
@@ -26,9 +26,9 @@ export const CarItemStyle = styled.li`
 export const CarCard = styled.div`
   display: flex;
   width: 100%;
-  flexdirection: column;
-  alignitems: flex-start;
-  justifycontent: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 8px;
 
   @media screen and (min-width: 768px) {
@@ -47,8 +47,8 @@ export const ImgWrap = styled.div`
   overflow: hidden;
   width: 100%;
   height: 146px;
-  objectfit: cover;
-  borderradius: 14px;
+  object-fit: cover;
+  border-radius: 14px;
 
   @media screen and (min-width: 768px) {
     height: 204px;
@@ -96,18 +96,18 @@ export const Heart = styled.svg`
 export const DescriptionWrap = styled.div`
   display: flex;
   width: 100%;
-  flexdirection: column;
+  flex-direction: column;
   gap: 8px;
 `;
 
 export const TitleWrap = styled.div`
   display: flex;
   width: 100%;
-  flexdirection: row;
-  justifycontent: space-between;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: 12px;
-  fontweight: 500;
-  alignitems: center;
+  font-weight: 500;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -131,13 +131,13 @@ export const DescriptListWrap = styled.div`
   display: flex;
   height: 36px;
   gap: 4px;
-  flexdirection: column;
+  flex-direction: column;
 `;
 
 export const DescriptList = styled.ul`
   display: flex;
   height: 18px;
-  columngap: 6px;
+  column-gap: 6px;
   color: var(--color-text-second);
   flex-wrap: nowrap;
   overflow: hidden;
@@ -152,7 +152,7 @@ export const DescriptItem = styled.li`
       height: 16px;
       width: 1px;
       background-color: rgba(18, 20, 23, 0.1);
-      marginleft: 6px;
+      margin-left: 6px;
       content: '';
     }
   }
@@ -163,16 +163,16 @@ export const Button = styled.button`
   width: 100%;
   height: 44px;
   padding: 12px;
-  justifycontent: center;
-  alignitems: center;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 0;
   border: none;
   border-radius: 12px;
   background: var(--color-button);
   color: var(--color-text-button);
-  fontsize: 14px;
-  fontweight: 600;
-  lineheight: 1.4;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
 
   &:hover,
   &:focus {
